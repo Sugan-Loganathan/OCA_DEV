@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This template is used for creating transfer popup-->
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_stock_add.ProductStockAddPopup">
+        <Dialog title="props.title" bodyClass="'d-flex flex-column justify-content-center'" size="'md'">
+        <div class="popup popup-text popup-med stock-transfer-popup"
+             style="width:100%">
+            <center>
+                <tr style="width:50%;height:30px">
+                    <td style="width:100px">
+                        <label for="picking_type" class="control-label">Nos:</label>
+                    </td>
+                    <td>
+                        <input class="w-350 form-control" type="text" t-model="state.priceValue" required=""/>
+                    </td>
+                </tr>
+                <br/>
+                <tr style="width:50%;height:30px" id="source_tr"
+                    t-ref="source_tr">
+                    <td style="width:100px">
+                        <label for="location" class="control-label">Note:</label>
+                    </td>
+                    <td style="padding-bottom: 5%;">
+                        <input class="w-350 form-control" type="html" t-model="state.note" required=""/>
+                    </td>
+                </tr>
+            </center>
+            <br/>
+            <div class="footer pb-3">
+            </div>
+        </div>
+            <t t-set-slot="footer">
+                <div class="d-flex flex-grow-1 justify-content-center">
+                    <t t-if="props.reserve">
+                        <div class="btn btn-primary btn-lg lh-lg o-default-button me-2"
+                             t-on-click="() => confirm(props.product.categ, 1,this)">
+                           <t t-esc="props.reserveText"/>
+                        </div>
+                    </t>
+                    <div class="button cancel btn btn-lg btn-secondary"
+                         t-on-click="cancel">
+                        <t t-esc="props.cancelText"/>
+                    </div>
+                </div>
+            </t>
+
+        </Dialog>
+    </t>
+</templates>
+

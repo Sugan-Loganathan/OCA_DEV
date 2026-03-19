@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="CreateRequest" t-inherit="point_of_sale.ProductInfoPopup" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('section-inventory')]" position="before">
+                <button t-on-click="() => this.open_req(1)" class="btn btn-primary">
+                    <h2 class="text-white justify-content-center"><i role="img" aria-label="Quantity" title="Quantity"/>Add Quantity</h2>
+                </button>
+                <br/>
+                <br/>
+        </xpath>
+    </t>
+</templates>
