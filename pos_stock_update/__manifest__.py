@@ -10,10 +10,10 @@
     'depends': ['base', 'point_of_sale', 'stock'],
     'assets': {
         'point_of_sale._assets_pos': [
-            'pos_stock_add/static/src/js/product_stock_add_popup.js',
-            'pos_stock_add/static/src/xml/product_stock_add_popup.xml',
-            'pos_stock_add/static/src/js/productinfo_popup_inherit.js',
-            'pos_stock_add/static/src/xml/productinfo_popup_inherit.xml',
+            'pos_stock_update/static/src/js/product_stock_add_popup.js',
+            'pos_stock_update/static/src/xml/product_stock_add_popup.xml',
+            'pos_stock_update/static/src/js/productinfo_popup_inherit.js',
+            'pos_stock_update/static/src/xml/productinfo_popup_inherit.xml',
         ]},
     'images': ['static/description/banner.png'],
     'license': "LGPL-3",

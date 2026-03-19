@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--This template is used for creating transfer popup-->
 <templates id="template" xml:space="preserve">
-    <t t-name="pos_stock_add.ProductStockAddPopup">
+    <t t-name="pos_stock_update.ProductStockAddPopup">
         <Dialog title="props.title" bodyClass="'d-flex flex-column justify-content-center'" size="'md'">
         <div class="popup popup-text popup-med stock-transfer-popup"
              style="width:100%">

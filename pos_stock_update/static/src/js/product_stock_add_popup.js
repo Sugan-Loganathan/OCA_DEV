@@ -6,7 +6,7 @@ import { usePos } from "@point_of_sale/app/store/pos_hook";
 import { Component, useState } from "@odoo/owl";
 
 export class ProductStockAddPopup extends Component {
-    static template = "pos_stock_add.ProductStockAddPopup";
+    static template = "pos_stock_update.ProductStockAddPopup";
     static components = { Dialog };
     static defaultProps = {
         confirmText: _t("Ok"),
