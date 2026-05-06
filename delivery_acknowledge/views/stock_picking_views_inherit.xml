@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_picking_form_inherit_others_tab" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherits.others</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='note']" position="after">
+                <page string="Acknowledge Documents" name="documents" invisible="picking_type_code != 'outgoing'">
+                    <group>
+                        <group>
+                            <field name="document_ids" widget="many2many_binary"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="unattached_delivery_action_picking_tree_all" model="ir.actions.act_window">
+        <field name="name">Unacknowledged Delivery Orders</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">list,kanban,form,calendar</field>
+        <field name="domain">[('document_ids', '=', False),('picking_type_code','=','outgoing'),('state','=','done')]
+        </field>
+        <field name="context">{'contact_display': 'partner_address', 'default_company_id': allowed_company_ids[0]}
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No transfer found. Let's create one!
+            </p>
+            <p>
+                Transfers allow you to move products from one location to another.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="unattached_delivery_orders" name="Unacknowledged Delivery Orders" parent="stock.menu_stock_transfers"
+              action="delivery_acknowledge.unattached_delivery_action_picking_tree_all" sequence="29"
+              groups="stock.group_stock_manager,stock.group_stock_user"/>
+</odoo>
+
+
