@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    hide product price in single product screen for public user-->
+    <template id="product_price_hide" inherit_id="website_sale.product_price">
+        <xpath expr="//div[@name='product_price']" position="attributes">
+            <attribute name="t-if">
+                not (env.company.hide_website_price and request.website.is_public_user())
+            </attribute>
+        </xpath>
+    </template>
+    <!--  hide product price in product list screen for public user  -->
+    <template id="products_item_hide" inherit_id="website_sale.products_item">
+        <xpath expr="//div[hasclass('product_price')]" position="before">
+            <div t-if="env.company.hide_website_price and request.website.is_public_user()"
+                 class="custom-pricing-text">
+
+                <t t-if="env.company.pricing_number">
+                    <span class="custom-pricing-message">
+                        Want to know the price?
+                        <br/>
+                        <a href="/web/signup" class="signup_link" >
+                            Sign up
+                        </a>
+                        or reach us at
+                    </span>
+
+                    <br/>
+
+                    <a t-att-href="'tel:' + env.company.pricing_number"
+                       class="custom-pricing-number">
+                        <t t-esc="env.company.pricing_number"/>
+                    </a>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+            <attribute name="t-if">
+                not (env.company.hide_website_price and request.website.is_public_user())
+            </attribute>
+        </xpath>
+    </template>
+    <!--    hide shop icon in product list screen for public user-->
+    <template id="wishlist_hide" inherit_id="website_sale_wishlist.add_to_wishlist">
+        <xpath expr="//button" position="attributes">
+            <attribute name="t-if">
+                not (env.company.hide_cart and request.website.is_public_user())
+            </attribute>
+        </xpath>
+        <xpath expr="//button[@data-action='o_wishlist']" position="attributes">
+            <attribute name="t-if">
+                not (env.company.hide_cart and request.website.is_public_user())
+            </attribute>
+        </xpath>
+
+    </template>
+    <!--    hide add to cart in product screen based on configuration-->
+    <template id="product_hide" inherit_id="website_sale.product">
+        <xpath expr="//t[@t-call='website_sale.product_terms_and_conditions']" position="before">
+            <div t-if="env.company.hide_website_price or env.company.hide_cart and request.website.is_public_user()"
+                 class="custom-pricing-text">
+                <span class="custom-price-message">
+                    <t t-if="env.company.pricing_number">
+                        Want to know the price?
+                       <a href="/web/signup" class="item_signup_link">
+                            Sign up
+                       </a>
+                        or reach us at
+                        <a t-att-href="'tel:' + env.company.pricing_number"
+                           class="custom-pricing-number" >
+                            <t t-esc="env.company.pricing_number"/>
+                        </a>
+                    </t>
+                </span>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-call='website_sale.cta_wrapper']" position="attributes">
+            <attribute name="t-if">
+                not (env.company.hide_website_price or env.company.hide_cart and request.website.is_public_user())
+            </attribute>
+        </xpath>
+    </template>
+    <!--  Hide Add To Cart button for based on configuration  -->
+    <template id="header_cart_link" inherit_id="website_sale.header_cart_link">
+        <xpath expr="//a[@href='/shop/cart']" position="attributes">
+            <attribute name="t-if">
+                not (env.company.hide_cart and request.website.is_public_user())
+            </attribute>
+        </xpath>
+    </template>
+</odoo>
