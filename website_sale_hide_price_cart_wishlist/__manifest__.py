@@ -28,9 +28,12 @@
     Configure the required product visibility and eCommerce access options
     from the company settings.
     """,
+    'author': "Suganya Loganathan",
+    'category': 'Website',
     'depends': [
         'website_sale',
-        'base'
+        'base',
+        'website_sale_wishlist'
     ],
     'data': [
         'views/res_company_views.xml',
@@ -41,6 +44,7 @@
             "website_sale_hide_price_cart_wishlist/static/src/css/style.css",
         ]
     },
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',
