@@ -1,0 +1,61 @@
+.custom-pricing-message,
+.custom-pricing-number {
+    color: mediumvioletred;
+    font-size: 17px;
+    font-weight: 200;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Mobile view */
+@media (max-width: 767px) {
+    .custom-pricing-message,
+    .custom-pricing-number {
+        font-size: 12px !important;
+    }
+}
+.custom-pricing-number {
+     font-weight: 700;
+}
+
+.custom-price-message {
+    color: mediumvioletred;
+    font-size: 17px;
+    font-weight: 200;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-price-number {
+    font-weight: bold !important;
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+    .custom-price-message {
+        font-size: 16px !important;
+    }
+}
+
+.signup_link {
+    text-decoration: underline;
+    font-weight: 900;
+    color: mediumvioletred;
+}
+
+.custom-pricing-number {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.custom-pricing-number:hover,
+.signup_link:hover {
+    text-decoration: underline;
+}
+
+.item_signup_link {
+    text-decoration: underline;
+    font-weight: 900;
+    color: mediumvioletred;
+}
+.custom-pricing-number:hover,
+.item_signup_link:hover {
+    text-decoration: underline;
+}
